@@ -1,4 +1,3 @@
-HipChat-CLI
-===========
+## HipChat CLI
 
 Command line tools for HipChat.
