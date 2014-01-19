@@ -1,6 +1,6 @@
 ## HipChat CLI (Command-line Interface)
 
-Command-line tool for HipChat. This command-line tool sends messages to a HipChat room. This tool currently supports all possible options that are made available in version 1 of the HipChat API. For further details, please see: <https://www.hipchat.com/docs/api/method/rooms/message>. In addition, this tool also adds support for Markdown (optional).
+Command-line tool for HipChat. This command-line tool sends messages to a HipChat room. This tool currently supports all possible options that are made available in version 1 of the HipChat API. For further details, please see: <https://www.hipchat.com/docs/api/method/rooms/message>. *In addition, this tool also adds support for Markdown (optional).*
 
 #### Requirements
 
@@ -11,17 +11,18 @@ Command-line tool for HipChat. This command-line tool sends messages to a HipCha
 #### Installation Instructions
 
 - Download the ZIP from GitHub and extract the directory locally.
-- Make your `hipchat.php` file executable; i.e. `chmod +x hipchat.php`
-- Finally, create a symlink in your `~/bin` directory so that `hipchat` will be in your `$PATH`.
-  e.g. `ln --symbolic /path/to/HipChat-CLI/hipchat.php ~/bin/hipchat`
+- Make the `HipChat-CLI/message.php` file executable; i.e. `chmod +x message.php`
+- Finally, create a symlink in your `~/bin` directory so that `hipchat-msg` (or whatever command name you prefer) will be in your `$PATH`; e.g. `ln --symbolic /path/to/HipChat-CLI/message.php ~/bin/hipchat-msg`
 
 #### Usage
 
 ```
-$ hipchat --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John' --room='555555' --message='Hello world!';
+$ hipchat-msg --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John' --room='555555' --message='Hello world!';
 ```
 
-- **TIP: Environment Variables Save Time** You can read the documentation below regarding environment variables that are supported by this tool. With environment variables you can shorten command-line usage to just: `$ hipchat [message]`. For instance, you could drop all the other arguments if you define the following environment variables. The following lines might go inside your `~/.profile`
+##### **TIP:** Environment variables save time...
+
+You can read the documentation below regarding environment variables that are supported by this tool. With environment variables you can shorten command-line usage to just: `$ hipchat-msg [message]`. For instance, you could drop all the other arguments if you define the following environment variables. The following lines might go inside your `~/.profile`
 
 ```
 export HIPCHAT_CLI_TOKEN='[YOUR HIPCHAT API TOKEN]';
@@ -34,17 +35,17 @@ export HIPCHAT_CLI_MSG_FORMAT='markdown';
 #### Cleaner Examples (Assuming You Configured All Environment Variables)
 
 ```
-$ hipchat 'Hello world!'
-$ echo 'Hello World!' | hipchat
-$ cat file.txt | hipchat
-$ cat file.md | hipchat
-$ cat file.html | hipchat
+$ hipchat-msg 'Hello world!'
+$ echo 'Hello World!' | hipchat-msg
+$ cat file.txt | hipchat-msg
+$ cat file.md | hipchat-msg
+$ cat file.html | hipchat-msg
 ```
 
 ## Full Documentation w/ All Possible Arguments
-Or from the command-line type: `$ hipchat --help`
+Or from the command-line type: `$ hipchat-msg --help`
 
-	~~~~~~~~~~ HipChat CLI Help/Documentation ~~~~~~~~~~
+	~~~~~~~~~~ HipChat CLI Help/Documentation for: hipchat-msg ~~~~~~~~~~
 
 	   This command-line tool sends messages to a HipChat room. This tool
 	   currently supports all possible options that are made available in version
@@ -53,17 +54,17 @@ Or from the command-line type: `$ hipchat --help`
 
 	USAGE:
 
-	   $ hipchat [options] [message]
+	   $ hipchat-msg [options] [message]
 
 	EXAMPLE (MINIMUM REQUIRED ARGUMENTS):
 
-	   $ hipchat --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John'
-	   --room='555555' --message='Hello world!'
+	   $ hipchat-msg --token='akaxlsdow234er443ssdlskdoeeesdfls9434'
+	   --from='John' --room='555555' --message='Hello world!'
 
 	EXAMPLE (MESSAGE AS LAST ARGUMENT INSTEAD OF PASSING --message OPTION):
 
-	   $ hipchat --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John'
-	   --room='555555' 'Hello world!'
+	   $ hipchat-msg --token='akaxlsdow234er443ssdlskdoeeesdfls9434'
+	   --from='John' --room='555555' 'Hello world!'
 
 	ENVIRONMENT VARIABLES (OPTIONAL):
 
@@ -75,11 +76,11 @@ Or from the command-line type: `$ hipchat --help`
 
 	CLEANER EXAMPLES (ASSUMING YOU CONFIGURE ALL ENVIRONMENT VARIABLES):
 
-	   $ hipchat 'Hello world!'
-	   $ echo 'Hello World!' | hipchat
-	   $ cat file.txt | hipchat
-	   $ cat file.md | hipchat
-	   $ cat file.html | hipchat
+	   $ hipchat-msg 'Hello world!'
+	   $ echo 'Hello World!' | hipchat-msg
+	   $ cat file.txt | hipchat-msg
+	   $ cat file.md | hipchat-msg
+	   $ cat file.html | hipchat-msg
 
 	ALL POSSIBLE OPTIONS:
 

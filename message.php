@@ -12,7 +12,7 @@ class message // Message class; constructor is handler.
 
 	public $endpoint = 'https://api.hipchat.com/v1'; // See: <https://www.hipchat.com/docs/api/method/rooms/message>
 
-	public $version = '140118'; // CLI version string.
+	public $version = '140119'; // CLI version string.
 
 	public function __construct() // Constructor is handler.
 		{
@@ -117,8 +117,18 @@ class message // Message class; constructor is handler.
 				}
 			$this->ops['format']  = 'html'; // Message becomes HTML now.
 			$this->ops['message'] = $wfm_parser->transform($this->ops['message']);
+
+			$this->ops['message'] = preg_replace_callback('/\<blockquote\>(?P<quote>.+?)\<\/blockquote\>/is',
+				function ($m)
+					{
+						return '<br />' // New line; like `<blockquote>`.
+						       .'<em>&ldquo; '.trim($m['quote']).' &rdquo;</em>'
+						       .'<br />------------------------------------<br />'; #
+
+					}, $this->ops['message']);
 			if(strpos($this->ops['message'], '<') === FALSE)
-				$this->ops['message'] = 'text';
+				if(strpos($this->ops['message'], '&') === FALSE)
+					$this->ops['message'] = 'text';
 		}
 
 	public function send()
@@ -149,21 +159,23 @@ class message // Message class; constructor is handler.
 			if($invalid) // In response to invalid args?
 				$help[] = 'Invalid argument(s); please try again.'."\n\n";
 
-			$help[] = '~~~~~~~~~~ HipChat CLI Help/Documentation ~~~~~~~~~~'."\n\n";
+			$hipchat_msg = basename($_SERVER['SCRIPT_FILENAME']); // Command name.
+
+			$help[] = '~~~~~~~~~~ HipChat CLI Help/Documentation for: '.$hipchat_msg.' ~~~~~~~~~~'."\n\n";
 
 			$help[] = "\t".'This command-line tool sends messages to a HipChat room. This tool currently supports all possible options that are made available in version 1 of the HipChat API. For further details, please see: <https://www.hipchat.com/docs/api/method/rooms/message>'."\n\n";
 
 			$help[] = 'USAGE:'."\n\n";
 
-			$help[] = "\t".'$ hipchat [options] [message]'."\n\n";
+			$help[] = "\t".'$ '.$hipchat_msg.' [options] [message]'."\n\n";
 
 			$help[] = 'EXAMPLE (MINIMUM REQUIRED ARGUMENTS):'."\n\n";
 
-			$help[] = "\t"."$ hipchat --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John' --room='555555' --message='Hello world!'"."\n\n";
+			$help[] = "\t"."$ ".$hipchat_msg." --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John' --room='555555' --message='Hello world!'"."\n\n";
 
 			$help[] = 'EXAMPLE (MESSAGE AS LAST ARGUMENT INSTEAD OF PASSING --message OPTION):'."\n\n";
 
-			$help[] = "\t"."$ hipchat --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John' --room='555555' 'Hello world!'"."\n\n";
+			$help[] = "\t"."$ ".$hipchat_msg." --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John' --room='555555' 'Hello world!'"."\n\n";
 
 			$help[] = 'ENVIRONMENT VARIABLES (OPTIONAL):'."\n\n";
 
@@ -175,11 +187,11 @@ class message // Message class; constructor is handler.
 
 			$help[] = 'CLEANER EXAMPLES (ASSUMING YOU CONFIGURE ALL ENVIRONMENT VARIABLES):'."\n\n";
 
-			$help[] = "\t"."$ hipchat 'Hello world!'"."\n";
-			$help[] = "\t"."$ echo 'Hello World!' | hipchat"."\n";
-			$help[] = "\t"."$ cat file.txt | hipchat"."\n";
-			$help[] = "\t"."$ cat file.md | hipchat"."\n";
-			$help[] = "\t"."$ cat file.html | hipchat"."\n\n";
+			$help[] = "\t"."$ ".$hipchat_msg." 'Hello world!'"."\n";
+			$help[] = "\t"."$ echo 'Hello World!' | ".$hipchat_msg."\n";
+			$help[] = "\t"."$ cat file.txt | ".$hipchat_msg."\n";
+			$help[] = "\t"."$ cat file.md | ".$hipchat_msg."\n";
+			$help[] = "\t"."$ cat file.html | ".$hipchat_msg."\n\n";
 
 			$help[] = 'ALL POSSIBLE OPTIONS:'."\n\n";
 
