@@ -20,7 +20,7 @@ Command-line tool for HipChat. This command-line tool sends messages to a HipCha
 $ hipchat-msg --token='akaxlsdow234er443ssdlskdoeeesdfls9434' --from='John' --room='555555' --message='Hello world!';
 ```
 
-##### **TIP:** Environment variables save time...
+##### **TIP:** environment variables save time...
 
 You can read the documentation below regarding environment variables that are supported by this tool. With environment variables you can shorten command-line usage to just: `$ hipchat-msg [message]`. For instance, you could drop all the other arguments if you define the following environment variables. The following lines might go inside your `~/.profile`
 
