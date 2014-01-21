@@ -1,0 +1,21 @@
+Section: utils
+Priority: optional
+Source: hipchat-cli
+Standards-Version: 3.9.4
+Build-Depends: debhelper (>= 9)
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Jason Caldwell <jason@websharks-inc.com>
+Homepage: https://github.com/WebSharks/HipChat-CLI
+#Vcs-Git: git://git.debian.org/collab-maint/hipchat-cli.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/hipchat-cli.git;a=summary
+
+Architecture: any
+Package: hipchat-cli
+Depends: ${misc:Depends}, php5-cli (>= 5.3), php5-curl (>= 5.3)
+Description: Command-line tools for HipChat. Currently one tool only.
+ Command-line tools for HipChat. Currently one.
+ This command-line tool sends messages to a HipChat room.
+ This tool currently supports all possible options that
+ are made available in version 1 of the HipChat API. For further details,
+ please see: <https://www.hipchat.com/docs/api/method/rooms/message>.
+ In addition, this tool also adds support for Markdown (optional).

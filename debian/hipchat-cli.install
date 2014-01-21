@@ -1,0 +1,2 @@
+*.php /usr/share/hipchat-cli
+externals/* /usr/share/hipchat-cli/externals
