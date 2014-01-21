@@ -1,6 +1,6 @@
-## HipChat CLI (Command-line Interface)
+## HipChat CLI (Command Line Interface)
 
-Command-line tool for HipChat. This command-line tool sends messages to a HipChat room. This tool currently supports all possible options that are made available in version 1 of the HipChat API. For further details, please see: <https://www.hipchat.com/docs/api/method/rooms/message>. *In addition, this tool also adds support for Markdown (optional).*
+Command-line tools for HipChat. Currently one. This command-line tool sends messages to a HipChat room. This tool currently supports all possible options that are made available in version 1 of the HipChat API. For further details, please see: <https://www.hipchat.com/docs/api/method/rooms/message>. *In addition, this tool also adds support for Markdown (optional).*
 
 #### Requirements
 
