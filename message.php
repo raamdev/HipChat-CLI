@@ -12,7 +12,7 @@ class message // Message class; constructor is handler.
 
 	public $endpoint = 'https://api.hipchat.com/v1'; // See: <https://www.hipchat.com/docs/api/method/rooms/message>
 
-	public $version = '140119'; // CLI version string.
+	public $version = '140121'; // CLI version string.
 
 	public function __construct() // Constructor is handler.
 		{

@@ -1,5 +1,5 @@
-hipchat-cli (140119-0ubuntu0) saucy; urgency=low
+hipchat-cli (140121-0ubuntu0) saucy; urgency=low
 
   * Initial release.
 
- -- Jason Caldwell <jason@websharks-inc.com>  Mon, 20 Jan 2014 07:56:36 -0900
+ -- Jason Caldwell <jason@websharks-inc.com>  Mon, 21 Jan 2014 07:56:36 -0900
