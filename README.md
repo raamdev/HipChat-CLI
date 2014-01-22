@@ -10,6 +10,15 @@ Command-line tools for HipChat. Currently one. This command-line tool sends mess
 
 #### Installation Instructions
 
+###### Ubuntu via WebSharks PPA.
+
+```
+$ sudo add-apt-repository ppa:websharks/ppa --yes && sudo apt-get update --yes;
+$ sudo apt-get install hipchat-cli --yes;
+```
+
+###### All Other Systems (Manual Install)
+
 - Download the ZIP from GitHub and extract the directory locally.
 - Make the `HipChat-CLI/message.php` file executable; i.e. `chmod +x message.php`
 - Finally, create a symlink in your `~/bin` directory so that `hipchat-msg` (or whatever command name you prefer) will be in your `$PATH`; e.g. `ln --symbolic /path/to/HipChat-CLI/message.php ~/bin/hipchat-msg`
