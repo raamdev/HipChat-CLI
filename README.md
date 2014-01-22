@@ -10,7 +10,7 @@ Command-line tools for HipChat. Currently one. This command-line tool sends mess
 
 #### Installation Instructions
 
-###### Ubuntu via WebSharks PPA.
+###### Ubuntu via WebSharks PPA
 
 ```
 $ sudo add-apt-repository ppa:websharks/ppa --yes && sudo apt-get update --yes;
