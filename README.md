@@ -17,6 +17,8 @@ $ sudo add-apt-repository ppa:websharks/ppa --yes && sudo apt-get update --yes;
 $ sudo apt-get install hipchat-cli --yes;
 ```
 
+Usage instructions: `$ hipchat-msg --help`
+
 ###### All Other Systems (Manual Install)
 
 - Download the ZIP from GitHub and extract the directory locally.
